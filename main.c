@@ -9,11 +9,11 @@ int rise = 1;
 float power = MIN_POWER;
 
 void initial_moves() {
-    pwmx_set_power(12);
+    pwmx_set_duty_cycle(12);
     sleep_ms(5000);
-    pwmx_set_power(7.35);
+    pwmx_set_duty_cycle(7.35);
     sleep_ms(5000);
-    pwmx_set_power(2.5);
+    pwmx_set_duty_cycle(2.5);
     sleep_ms(5000);
 }
 
@@ -24,7 +24,7 @@ int main() {
     while (true) {
         rise = (power >= MIN_POWER && power <= MAX_POWER) ? rise : -1 * rise;
         power = power + rise * POWER_STEP;
-        pwmx_set_power(power);
+        pwmx_set_duty_cycle(power);
         sleep_ms(10);
     }
 }
