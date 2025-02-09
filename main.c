@@ -2,11 +2,11 @@
 #include "pico/stdlib.h"
 #include "pwm.h"
 
-const float MIN_POWER = 2.5f;
-const float MAX_POWER = 12.0f;
-const float POWER_STEP = 0.025f; 
+const float DOWN_DUTY_CYCLE = 2.5f;
+const float TOP_DUTY_CYCLE = 12.0f;
+const float DUTY_CYCLE_STEP = 0.025f;
 int rise = 1;
-float power = MIN_POWER;
+float duty_cycle = DOWN_DUTY_CYCLE;
 
 void initial_moves() {
     pwmx_set_duty_cycle(12);
@@ -22,9 +22,9 @@ int main() {
     pwmx_init();
     initial_moves();
     while (true) {
-        rise = (power >= MIN_POWER && power <= MAX_POWER) ? rise : -1 * rise;
-        power = power + rise * POWER_STEP;
-        pwmx_set_duty_cycle(power);
+        rise = (duty_cycle >= DOWN_DUTY_CYCLE && duty_cycle <= TOP_DUTY_CYCLE) ? rise : -1 * rise;
+        duty_cycle = duty_cycle + rise * DUTY_CYCLE_STEP;
+        pwmx_set_duty_cycle(duty_cycle);
         sleep_ms(10);
     }
 }

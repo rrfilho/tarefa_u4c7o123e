@@ -21,10 +21,10 @@ void pwmx_init() {
     pwmx_init_pin(PWM_SERVO);
 }
 
-void pwmx_set_duty_cycle(float power) {
-    if (power > MAX_DUTY_CYCLE) power = MAX_DUTY_CYCLE;
-    if (power < MIN_DUTY_CYCLE) power = MIN_DUTY_CYCLE;
-    uint level = WRAP * power/100;
+void pwmx_set_duty_cycle(float duty_cycle) {
+    if (duty_cycle > MAX_DUTY_CYCLE) duty_cycle = MAX_DUTY_CYCLE;
+    if (duty_cycle < MIN_DUTY_CYCLE) duty_cycle = MIN_DUTY_CYCLE;
+    uint level = WRAP * duty_cycle/100;
     pwm_set_gpio_level(PWM_LED, level);
     pwm_set_gpio_level(PWM_SERVO, level);
 }
