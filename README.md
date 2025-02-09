@@ -14,3 +14,6 @@ A função pwmx_set_duty_cycle(float duty_cycle) recebe o duty cycle desejado e 
 Executa as operações inicias solicitadas na tarefa, configurando o duty cycle para 12,0% (180°), 7,35% (90°) e 2,5% (0°). 
 Na sequência é realizado o movimento periódico, indo de 0° à 180 e retornando para 0°. Conforme a tarefa o incremento/decremento do duty cycle é de 2us que equivale a 0.025%.
 
+### Vídeo
+
+[https://drive.google.com/file/d/1Q6RHHdywjIBB90s2-reur6YgiQbjbv0x/view?usp=sharing](https://drive.google.com/file/d/1Q6RHHdywjIBB90s2-reur6YgiQbjbv0x/view?usp=sharing)
